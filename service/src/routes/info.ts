@@ -12,12 +12,12 @@ interface AppVersionInfo {
 
 const appInfo: AppInfo = {
   "1.0.0": {
+    baseUrl: "https://pro.ebazaar.mn",
+    stage: "prod",
+  },
+  "1.0.1": {
     baseUrl: "https://k8sapi-dev.ebazaar.mn",
     stage: "dev",
-  },
-  "0.0.9": {
-    baseUrl: "https://k8sapi-dev.ebazaar.mn",
-    stage: "prod",
   },
 };
 
