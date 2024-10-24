@@ -10,7 +10,26 @@ interface AppVersionInfo {
   stage: string;
 }
 
-const appInfo: AppInfo = {
+const appInfoIos: AppInfo = {
+  "1.0.0": {
+    baseUrl: "https://pro.ebazaar.mn",
+    stage: "prod",
+  },
+  "1.0.1": {
+    baseUrl: "https://pro.ebazaar.mn",
+    stage: "prod",
+  },
+  "1.0.2": {
+    baseUrl: "https://pro.ebazaar.mn",
+    stage: "prod",
+  },
+  "1.0.3": {
+    baseUrl: "https://k8sapi-dev.ebazaar.mn",
+    stage: "dev",
+  },
+};
+
+const appInfoAndroid: AppInfo = {
   "1.0.0": {
     baseUrl: "https://pro.ebazaar.mn",
     stage: "prod",
@@ -39,10 +58,12 @@ router.get(
       .isString()
       .notEmpty()
       .withMessage("Must be valid app version"),
+    query("os").isString().notEmpty().withMessage("OS must be defined"),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const { version } = req.query;
+    const { version, os } = req.query;
+    const appInfo = os === "ios" ? appInfoIos : appInfoAndroid;
 
     if (version && typeof version === "string" && appInfo[version]) {
       return res
