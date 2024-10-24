@@ -58,7 +58,7 @@ router.get(
       .isString()
       .notEmpty()
       .withMessage("Must be valid app version"),
-    query("os").isString().notEmpty().withMessage("OS must be defined"),
+    // query("os").isString().notEmpty().withMessage("OS must be defined"),
   ],
   validateRequest,
   async (req: Request, res: Response) => {
