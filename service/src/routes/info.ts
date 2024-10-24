@@ -20,6 +20,10 @@ const appInfo: AppInfo = {
     stage: "prod",
   },
   "1.0.2": {
+    baseUrl: "https://pro.ebazaar.mn",
+    stage: "prod",
+  },
+  "1.0.3": {
     baseUrl: "https://k8sapi-dev.ebazaar.mn",
     stage: "dev",
   },
